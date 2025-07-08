@@ -19,7 +19,7 @@ window.addEventListener("load", () => {
       {
         palavra: "Esgoto",
         texto_dica:
-          "Sistema invisível, mas essencial, que percorre subterrâneos e carrega águas sujas e restos indesejados. Sem mim, o caos e a poluição tomariam conta das ruas, garantindo a limpeza e o equilíbrio urbano.",
+          "Sistmema invisível, mas essencial, que percorre subterrâneos e carrega águas sujas e restos indesejados. Sem mim, o caos e a poluição tomariam conta das ruas, garantindo a limpeza e o equilíbrio urbano.",
       },
     ],
     "Poluição do solo": [
