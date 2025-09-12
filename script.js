@@ -77,6 +77,8 @@ window.addEventListener("load", () => {
   dica.innerText = `O tema é: ${tema_da_vez}`;
 
   const linha_da_forca = document.querySelector("#container #wrapper #linha");
+  
+  const fundo_escuro = document.querySelector("#fundoescuro");
 
   for (let index = 0; index < palavra_certa.length; index++) {
     const campo = document.createElement("div");
@@ -148,13 +150,13 @@ window.addEventListener("load", () => {
         ) {
           document.querySelector("#final h1").innerText = "Você ganhou!";
           document.querySelector("#final").style.display = "block";
-          document.querySelector("#fundoescuro").style.display = "flex";
+          fundo_escuro.style.display = "flex";
         }
 
         if (MAX_ERROS == quantidade_erros) {
           document.querySelector("#final h1").innerText = "Você perdeu!";
           document.querySelector("#final").style.display = "block";
-          document.querySelector("#fundoescuro").style.display = "flex";
+          fundo_escuro.style.display = "flex";
         }
       });
 
@@ -214,48 +216,52 @@ window.addEventListener("load", () => {
         }
       }
 
+      
+
       if (
         palavra_certa ==
           Array.from(linha_da_forca.children)
             .reduce((a, b) => a + b.innerText, "")
             .toLowerCase() &&
-        document.querySelector("#dica").style.display != "flex"
+            painel_dica.style.display != "flex"
       ) {
         document.querySelector("#final h1").innerText = "Você ganhou!";
         document.querySelector("#final").style.display = "block";
-        document.querySelector("#fundoescuro").style.display = "flex";
+        fundo_escuro.style.display = "flex";
       }
 
       if (
         MAX_ERROS == quantidade_erros &&
-        document.querySelector("#dica").style.display != "flex"
+        painel_dica.style.display != "flex"
       ) {
         document.querySelector("#final h1").innerText = "Você Perdeu!";
         document.querySelector("#final").style.display = "block";
-        document.querySelector("#fundoescuro").style.display = "flex";
+        fundo_escuro.style.display = "flex";
       }
     }
   });
   // -------------------------------------
 
   // DICA --------------------------------
+  const painel_dica = fundo_escuro.querySelector("#dica");
+  
 
-  document.querySelector("#dica #texto_dica").innerText =
+  painel_dica.querySelector("#texto_dica").innerText =
     PALAVRAS_PERMITIDAS[tema_da_vez][ind_palavra_certa].texto_dica;
 
   document.querySelector("#btn_dica").addEventListener("click", () => {
-    document.querySelector("#dica").style.display = "flex";
-    document.querySelector("#fundoescuro").style.display = "flex";
+    painel_dica.style.display = "flex";
+    fundo_escuro.style.display = "flex";
   });
 
-  document.querySelector("#dica .fechar_btn").addEventListener("click", () => {
-    document.querySelector("#dica").style.display = "none";
-    document.querySelector("#fundoescuro").style.display = "none";
+  painel_dica.querySelector(".fechar_btn").addEventListener("click", () => {
+    painel_dica.style.display = "none";
+    fundo_escuro.style.display = "none";
   });
 
   document.querySelector("#final .fechar_btn").addEventListener("click", () => {
     document.querySelector("#final").style.display = "none";
-    document.querySelector("#fundoescuro").style.display = "none";
+    fundo_escuro.style.display = "none";
   });
 
   // --------------------------------------
